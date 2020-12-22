@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+		<!--Color picker-->
+		<link href="color-picker/libraries/prettify/prettify.css" rel="stylesheet" type="text/css" media="all">
+    <link href="color-picker/jquery-colorpickersliders/jquery.colorpickersliders.css" rel="stylesheet" type="text/css" media="all">
+		<!--Color picker-->
+
+		<link rel="stylesheet" href="css/general.css">
+		<title>Magic Fountain - Play</title>
+	</head>
+	<body>
+		<div class="container-fluid fixed-bottom mb-4">
+			<div class="row bg-gradient tex-center">
+				<div class="col-12 tex-center">
+					<ul class="nav mx-auto justify-content-center" id="pills-tab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">
+								<img style="max-width: 30px;" class="img-fluid" id="btn-home" src="assets/img/menu/btn-home-purple.png" onClick="changeMenu(1);">
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-us-tab" data-toggle="pill" href="#pills-us" role="tab" aria-controls="pills-us" aria-selected="false">
+								<img style="max-width: 30px;" class="img-fluid" id="btn-us" src="assets/img/menu/btn-us.png" onClick="changeMenu(2);">
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-videos-tab" data-toggle="pill" href="#pills-videos" role="tab" aria-controls="pills-videos" aria-selected="false">
+								<img style="max-width: 30px;" class="img-fluid" id="btn-video" src="assets/img/menu/btn-videos.png" onClick="changeMenu(3);">
+							</a>
+						</li>
+		
+						<li class="nav-item"> <!--Aqui va join socket-->
+							<a class="nav-link" id="pills-play-tab" data-toggle="pill" href="#pills-play" role="tab" aria-controls="pills-play" aria-selected="false">
+								<img style="max-width: 30px;" class="img-fluid" id="btn-play" src="assets/img/menu/btn-play.png" onClick="changeMenu(4);">
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row tex-center">
+				<div class="col-12 tex-center">
+					<ul class="nav mx-auto justify-content-center" id="pills-tab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active">
+								<small class="titles">Inicio</small>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" >
+								<small class="titles">Nosotros</small>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" >
+								<small class="titles">Videos</small>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" >
+								<small class="titles">Jugar</small>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container fixed-bottom mb-1">
+			<div class="row">
+				<div class="col-12 text-center">
+					<img src="assets/img/byMagic.png" class="img-fluid w-25">
+				</div>
+			</div>
+		</div>
+		<!--Pills Menú content-->
+		<div class="container-fluid mt-4">
+			<div class="row">
+				<div class="col">
+					<div class="tab-content" id="pills-tabContent">
+						<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+							<div class="row mt-3">
+								<div class="col-12 text-center">
+									<img src="assets/img/logo-iquique.png" alt="" class="img-fluid test">
+								</div>
+								<div class="col-12 text-center mt-3" style="padding-top:15vh;">
+									<h3 class="titlesBold" id="play-homeTitle">php echo $lbl->welcome;</h3>
+								</div>
+								<div class="col-12 text-center mt-3">
+									<p class="titles" id="play-homeContent">php echo $lbl->welcome_bullet;</p>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="pills-us" role="tabpanel" aria-labelledby="pills-us-tab">
+							<div class="row mt-3">
+								<div class="col-12 text-center">
+									<img src="assets/img/logo-iquique.png" alt="" class="img-fluid">
+								</div>
+								<div class="col-12 text-center mt-2">
+									<h3 class="titlesBold" id="play-usTitle"></h3>
+								</div>
+								<div class="col-12 text-center mt-2">
+									<p class="titles" id="play-usContent"></p>
+								</div>
+								<div class="col-12 text-center mt-2">
+									<div class="row">
+										<div class="col text-center"><img src="assets/img/social/twitter.png" class="img-fluid"  alt=""></div>
+										<div class="col text-center"><img src="assets/img/social/facebook.png" class="img-fluid"  alt=""></div>
+										<div class="col text-center"><img src="assets/img/social/instagram.png" class="img-fluid"  alt=""></div>
+										<div class="col text-center"><img src="assets/img/social/youtube.png" class="img-fluid"  alt=""></div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="pills-videos" role="tabpanel" aria-labelledby="pills-videos-tab">
+							<div class="row mt-5">
+								<div class="col-12 text-center">
+									<img src="assets/img/logo-iquique.png" alt="" class="img-fluid">
+								</div>
+								<div class="col-12 text-center mt-2">
+									<h3 class="titlesBold">Videos</h3>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="pills-play" role="tabpanel" aria-labelledby="pills-play-tab">
+							<!--Pantalla de queue-->
+							<div class="row" id="rowQueue">
+								<div class="col-4 text-left">
+									<img src="assets/img/btn-back.png" class="img-fluid" style="width: 40%;" alt="">
+									<p class="titles" id="play-waitGoBack"></p>
+								</div>
+								<div class="col-8 text-right">
+									<p class="titlesBold mt-4" id="play-controlFountain"></p>
+								</div>
+								<div class="col-12 text-center bg-queue">
+											<p class="titles" style="margin-top: 75px;" id="play-waiting" ></p>
+								</div>
+								<div class="col-12 text-center mt-2" id="iosPermisos">
+									<button class="btn col-xs-12 align-middle btn-ios" onClick="askIOS()" id="play-permissions"></button>
+								</div>
+								<div class="col-12 text-center mt-3">
+									<small class="titles" id="play-waitingSmall"></small>
+								</div>
+								<div class="col text-center mt-3">
+									<button class="btn col-xs-12 align-middle btn-cancel" id="play-cancelGame" onClick="cancelQueue()"></button>
+								</div>
+							</div>
+							<!--Pantalla de queue-->
+									
+							<!--Pantalla de cancelado-->
+							<div class="row" id="rowCancel" hidden>
+								<div class="col-4 text-left">
+									<img src="assets/img/btn-back.png" class="img-fluid" style="width: 40%;" alt="">
+									<p class="titles" id="play-cancelGoBack"></p>
+								</div>
+								<div class="col-12 text-center w-75 mt-5">
+									<p class="titles" id="play-cancelText"  style="text-align:center;"></p>
+									<img src="assets/img/try-again.png" class="img-fluid mt-3"  style="width:15%;">
+									<br>
+									<button class="btn col-xs-12 align-middle btn-cancel mt-5" id="play-cancelPlayAgain" onClick="playAgain()"></button>
+									<br>
+								</div>
+							</div>
+							<!--Pantalla de cancelado-->
+
+							<!--Pantalla de terminado-->
+							<div class="row" id="rowEndGame" hidden>
+								<div class="col-4 text-left">
+									<img src="assets/img/btn-back.png" class="img-fluid" style="width: 40%;" alt="">
+									<p class="titles" id="play-finishedGoBack"></p>
+								</div>
+								<div class="col-12 text-center w-75">
+									<img src="assets/img/fin.png" class="img-fluid"  style="width:75%;" alt="">
+									<br>
+									<button class="btn col-xs-12 align-middle btn-cancel mt-5" id="play-finishedPlayAgain" onClick="window.location.reload();"></button>
+									<br>
+								</div>
+							</div>
+							<!--Pantalla de terminado-->
+
+									
+							<!--Pantalla de juego-->
+							<div class="row" id="rowPlaying" hidden>
+								<div class="col-6 text-left">
+									<button class="btn col-xs-12 align-middle btn-cancel" style="  background-color: #B80F0A;" onClick="cancelGame()">Salir del juego</button>
+								</div>
+								<div class="col-6 pl-0 pr-0 mt-2 text-left">
+									<p class="titles">Tiempo restante: <span id="count">60</span> seg.</p>
+								</div>
+								<div class="col-12 pl-0 pr-0">
+									<div id="accordion">
+										<div class="card">
+											<div class="card-header card-section" id="headingOne" style="background-color:#7065FE;" data-toggle="collapse" data-target="#collapseOne" onClick="changeFountain('startPlaying'); changeColor(1);">
+												<h5 class="mb-0">
+													<img src="assets/img/arrow.png" class="img-fluid" style="width: 5%" alt="">
+													<button class="btn btn-accordion" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"> Juego libre</button>
+												</h5>
+											</div>
+											<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+												<div class="card-body">
+													<p class="titles">Escoge el color que quieras:</p>
+													<!--Color picker-->
+														<span class="colorBar"></span>
+													<!--Color picker-->
+		
+													<div class="slidecontainer" id="heightSlider">
+														<input type="range" min="0" max="100" step="2" oninput="changeHeight(this.value)" value="0" class="slider" id="myRange" >
+													</div>
+													<div class="row">
+														<div class="col-12 mb-3 mt-2">
+															<span class="titles" id="cActual">Actualmente jugando con circuito: Todos</span>
+														</div>
+														<div class="col-12 mt-2">
+															<span class="titles" id="support">Support: </span>
+															<span class="titles" id="beta">Beta Value: </span>
+														</div>
+														<div class="col text-center">	
+															<button type="button" class="btn btn-info btn-block" style="background-color: #fe6474; border-color: #fe6474;" onClick="changeCircuit('300')">Todos</button>
+														</div>
+														<div class="col text-center">	
+															<button type="button" class="btn btn-info btn-block" style="background-color: #fe6474; border-color: #fe6474;" onClick="changeCircuit('301')">C1</button>
+														</div>
+														<div class="col text-center">	
+															<button type="button" class="btn btn-info btn-block" style="background-color: #fe6474; border-color: #fe6474;" onClick="changeCircuit('302')">C2</button>
+														</div>
+														<div class="col text-center">	
+															<button type="button" class="btn btn-info btn-block" style="background-color: #fe6474; border-color: #fe6474;" onClick="changeCircuit('303')">C3</button>
+														</div>
+														<div class="col-6 text-center mt-3">	
+															<button type="button" class="btn btn-info btn-block" style="background-color: #fe6474; border-color: #fe6474; display:none;" onClick="changeFountain('inicioJuego')">Inicio juego</button>
+														</div>
+														<div class="col-6 text-center mt-3">	
+															<button type="button" class="btn btn-info btn-block" style="background-color: #fe6474; border-color: #fe6474; display: none;" onClick="changeFountain('finJuego')">Fin juego</button>
+														</div>
+													</div>
+													<div class="row mt-2">
+														<div class="col text-center">	
+															<button type="button" class="btn btn-info btn-block" style="background-color: #fe6474; border-color: #fe6474;" onClick="changeCircuit('304')">C4</button>
+														</div>
+														<div class="col text-center">	
+															<button type="button" class="btn btn-info btn-block" style="background-color: #fe6474; border-color: #fe6474;" onClick="changeCircuit('305')">C5</button>
+														</div>
+														<div class="col text-center">	
+															<button type="button" class="btn btn-info btn-block" style="background-color: #fe6474; border-color: #fe6474;" onClick="changeCircuit('306')">C6</button>
+														</div>
+														<div class="col text-center">	
+															<button type="button" class="btn btn-info btn-block" style="background-color: #fe6474; border-color: #fe6474;" onClick="changeCircuit('307')">C7</button>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header card-section" id="headingTwo" style="background-color: #fe6474;"data-toggle="collapse" data-target="#collapseTwo">
+												<h5 class="mb-0">
+													<img src="assets/img/arrow.png" class="img-fluid" style="width: 5%" alt="">
+													<button class="btn btn-accordion" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" onClick="changeColor(2)">Elige musica</button>
+												</h5>
+											</div>
+											<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+												<div class="card-body">
+													<div class="card-body p-0">
+														<p class="titles" id="current-playing">Reproduciendo actualmente:</p>
+														<input type="text" id="myInput" onkeyup="filterFunction()" placeholder="Buscar Canción" title="Type in a name">
+														<ul id="myUL">
+																<li><a onClick="playSong('Song no 1');">S1 </a></li>
+																<li><a onClick="playSong('Song no 2');">S2 </a></li>
+																<li><a onClick="playSong('Song no 3');">S3 </a></li>
+																<li><a onClick="playSong('Song no 4');">S4 </a></li>
+																<li><a onClick="playSong('Song no 5');">S5 </a></li>
+
+														</ul>
+													</div>
+													
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header card-section" id="headingThree" style="background-color: #fe6474;"data-toggle="collapse" data-target="#collapseThree">
+												<h5 class="mb-0">
+													<img src="assets/img/arrow.png" class="img-fluid" style="width: 5%" alt="">
+													<button class="btn btn-accordion" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo" onClick="changeColor(3)">Elige secuencias</button>
+												</h5>
+											</div>
+											<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+												<div class="card-body">
+													<p class="titles">Escoge La secuencia:</p>
+													<div class="row">
+														<div class="col-3 text-center">
+															<img src="assets/img/btn1.png" alt="" class="img-fluid" onClick="changeSequence('220');">
+														</div>
+														<div class="col-3 text-center">
+															<img src="assets/img/btn2.png" alt="" class="img-fluid" onClick="changeSequence('221');">
+														</div>
+														<div class="col-3 text-center">
+															<img src="assets/img/btn3.png" alt="" class="img-fluid" onClick="changeSequence('222');">
+														</div>
+														<div class="col-3 text-center">
+															<img src="assets/img/btn4.png" alt="" class="img-fluid" onClick="changeSequence('223');">
+														</div>
+													</div>
+													<div class="row mt-3">
+														<div class="col-3 text-center">
+															<img src="assets/img/btn5.png" alt="" class="img-fluid" onClick="changeSequence('224');">
+														</div>
+														<div class="col-3 text-center">
+															<img src="assets/img/btn6.png" alt="" class="img-fluid" onClick="changeSequence('225');">
+														</div>
+														<div class="col-3 text-center">
+															<img src="assets/img/btn7.png" alt="" class="img-fluid" onClick="changeSequence('226');">
+														</div>
+														<div class="col-3 text-center" style="display:none;">
+															<img src="assets/img/btn8.png" alt="" class="img-fluid" onClick="changeSequence('227');">
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+							<!--Pantalla de juego-->
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--Pills Menú content-->
+		<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper-->
+		<script src="js/libs/jquery-3.5.1.min.js"></script>
+		<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="color-picker/libraries/prettify/prettify.js"></script>
+    <script src="color-picker/libraries/tinycolor.js"></script>
+		<script src="color-picker/jquery-colorpickersliders/jquery.colorpickersliders.js"></script>
+		<script src="js/menu.js"></script>
+		<script src="js/playTexts.js"></script>
+		<script src="js/playGeneral.js"></script>
+		<script src="socket.io/socket.io.js"></script>
+		<script src="js/socket.new-player.js"></script>
+	</body>
+</html>

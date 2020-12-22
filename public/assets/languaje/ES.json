@@ -1,0 +1,22 @@
+{   
+	"login_section" : "<h4 class='titles'>Bienvenido a la experiencia</h4><h4 class='titles mt-5'>disfruta de la<br>magia que las<br>fuentes te ofrecen</h4>",
+	"login_mail_text" : "Tu correo",
+	"login_btn" : "Ingresar",
+
+	"homeTitle" : "Bienvenido",
+	"homeContent" : "Usa tu smartphone y disfruta de la <br>experiencia que las Fuentes mágicas<br>te ofrecen",
+
+	"usTitle": "Nosotros",
+	"usContent": "Dedicados a desarrollar conceptos innovadores de esparcimiento e imagen, de acuerdo a las necesidades de cada proyecto, trabajando bajo los más altos estándares de calidad, con la finalidad de garantizar la completa <b>satisfcacción de nuestros clientes.</b>",
+
+	"playGoBack": "Regresar",
+	"playControlFountain": "¡Controla la fuente!",
+	"playWaiting": "Tiempo de<br> espera para<br> tu turno:<br><span id='waitTime'></span>",
+	"playPermissions": "Solicita permiso para jugar <img src='assets/img/hand.png' class='img-fluid ml-2' style='width: 25px;'> ",
+	"playWaitingSmall": "Una vez concluido el tiempo de espera podrás jugar con la fuente.",
+	"playCancel": "Cancelar juego",
+
+	"playCancelText":"Has cancelado tu turno, previona el siguiente botón para volver a jugar",
+	"playAgain": "Juegar de nuevo"
+
+}

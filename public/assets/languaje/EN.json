@@ -1,0 +1,21 @@
+{
+	"login_section" : "<h4 class='titles'>Welcome to the experience</h4><h4 class='titles mt-5'>Enjoy<br>the magic<br>of our fountains</h4>",
+	"login_mail_text" : "Your email",
+	"login_btn" : "Log in",
+
+	"homeTitle" : "Welcome!",
+	"homeContent" : "Use your smartphone and<br>enjoy the magic<br>of our fountains",
+
+	"usTitle": "About us",
+	"usContent": "Dedicated to develop innovative concepts of entertainment and image, according to each project needs, working under the highest quality standards, guaranteeing the complete <b>satisfaction of our clients.<b>",
+
+	"playGoBack": "Go back",
+	"playControlFountain": "Control the fountain!",
+	"playWaiting": "Waiting <br>time<br> to play:<br><span id='waitTime'></span>",
+	"playPermissions": "Ask permissions to play <img src='assets/img/hand.png' class='img-fluid ml-2' style='width: 25px;'>",
+	"playWaitingSmall": "Wait until time reach zero to start playing.",
+	"playCancel": "Cancel game",
+
+	"playCancelText":"You have canceled your turn, click on the next button to play again",
+	"playAgain": "Play again"
+}

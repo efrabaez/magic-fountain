@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'GillSans';
+  font-style: normal;
+  font-weight: normal;
+  src: url(../assets/font/GillSansStd.otf);
+}
+
+@font-face {
+  font-family: 'GillSansLight';
+  font-style: normal;
+  font-weight: normal;
+  src: url(../assets/font/GillSansStd-Light.otf);
+}
+
+body{
+	background-color: #f8f6f6!important;
+}
+
+.titles{
+  font-family: 'GillSansLight', sans-serif;
+  color: #7f8080 !important;
+}
+
+.titlesBold{
+  font-family: 'GillSans', sans-serif;
+  color: #7f8080 !important;
+}
+
+
+.bg-gradient{
+  background: rgb(2,0,36);
+  background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(255,85,143,1) 0%, rgba(254,111,97,1) 100%);
+}
+
+.bg-noFound{
+  background: #fe6474;
+}
+
+
+.bg-queue{
+  height: 230px;
+  display: inline-block;
+  background-image: url(../assets/img/queue.gif);
+  background-size: 60%;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation-iteration-count: infinite;
+
+}
+
+.btn-ios{
+  background-color: #93c01e;
+  font-family: 'GillSans', sans-serif;
+  color: #FFF !important;
+}
+
+.btn-cancel{
+  background-color: #fe6474;
+  font-family: 'GillSans', sans-serif;
+  color: #FFF !important;
+}
+
+#count{
+  color: #fe6474;
+}
+
+/*.card-section{
+  background-color: #fe6474!important;
+}*/
+
+
+.btn-accordion{
+  font-family: 'GillSans', sans-serif;
+  color: #FFF !important;
+}
+
+.card-body{
+	background-color: #f8f6f6!important;
+}
+
+.card-header{
+  padding: .20rem 1rem!important;
+}
+
+
+#myInput {
+  background-image: url(../assets/img/searchicon.png);
+  background-size: 25px;
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  background-color: #525252;
+  color: white;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+
+::placeholder {
+  color: white;
+}
+
+.cp-container{
+  touch-action: manipulation!important;
+}
+
+
+@media only screen and (max-height: 568px) {
+  #myUL {
+    height: 120px;
+    overflow: scroll;
+  }
+}
+
+
+@media only screen and (max-height: 667px) {
+  #myUL {
+    height: 220px;
+    overflow: scroll;
+  }
+}
+
+
+@media only screen and (max-height: 736px) {
+  #myUL {
+    height: 280px;
+    overflow: scroll;
+  }
+}
+
+
+@media only screen and (max-height: 823px) {
+  #myUL {
+    height: 18vh;
+    overflow: scroll;
+  }
+}
+
+#mySelectedColor{
+  display: none;
+}
+
+
+
+
+/*Slider bar */
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #fe6474; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #fe6474; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
