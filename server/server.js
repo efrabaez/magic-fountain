@@ -7,16 +7,22 @@
 
 const express = require('express');
 const socketIO = require('socket.io');
-const http = require('http');
-
+const https = require('https');
+const fs = require('fs');
 const path = require('path');
 
+const options = {
+    key: fs.readFileSync('certificates/mitienda.key'),
+    cert: fs.readFileSync('certificates/mitienda.crt')
+};
+
+
 const app = express();
-let server = http.createServer(app);
+let server = https.createServer(options, app);
 
 
 const publicPath = path.resolve(__dirname, '../public');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 4300;
 
 app.use(express.static(publicPath));
 
@@ -35,7 +41,7 @@ server.listen(port, (err) => {
 });
 
 /*const musicFolder = '/media/pi/USB/music/';
-const fs = require('fs');
+
 const songs = [];
 
 fs.readdirSync(musicFolder).forEach(file => {

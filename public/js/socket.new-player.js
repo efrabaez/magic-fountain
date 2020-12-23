@@ -2,6 +2,7 @@ let lastColor = "0";
 let lastCircuit = "300";
 let lastHeigth = 0;
 let slider = document.getElementById("myRange");
+let isPlaying = false;
 
 
 //Establish connection with server
@@ -155,7 +156,9 @@ if (window.DeviceOrientationEvent) {
     setTimeout(function() {
       try {
           beta.innerText= Math.round(evt.beta.toFixed(fixed));
-          addHeight(evt.beta.toFixed(fixed));
+	  if(isPlaying && (Math.round(evt.beta.toFixed(fixed)) >= 0 && Math.round(evt.beta.toFixed(fixed))  <=100)){
+            addHeight(evt.beta.toFixed(fixed));
+	  }
     
       } catch (ex) {
         document.getElementById("support").innerText = "Suuport: NOT";
@@ -212,9 +215,10 @@ function countDown(_difference, _dataEnd){
 }
 
 function playingTime(_endTime){
-socket.emit('startPlaying', {
-  email: param('id')
-});
+  socket.emit('startPlaying', {
+    email: param('id')
+  });
+  isPlaying = true;
   var currentTime = new Date();
   var dataTime = new Date (_endTime);
   var difference = Math.round((dataTime - currentTime) / 1000);
