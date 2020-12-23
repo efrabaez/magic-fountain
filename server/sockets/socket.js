@@ -24,7 +24,7 @@ let SerialPort = require('serialport');
  * idProduct, idVendor and serial of arduino.
  * BaudRate must match Arduino's BaudRate
  */
-/*let serial_one = new SerialPort('/dev/arduino_1',{ 
+let serial_one = new SerialPort('/dev/arduino_1',{ 
   baudRate: 9600, 
   parser: SerialPort.parsers.raw
 });
@@ -32,7 +32,7 @@ let SerialPort = require('serialport');
 let serial_two = new SerialPort('/dev/arduino_2',{ 
   baudRate: 9600, 
   parser: SerialPort.parsers.raw
-});*/
+});
 
 
 
@@ -108,8 +108,8 @@ io.on('connection', (client) => {
           isActive = false;
           clearInterval(x);
           activeEvent = false;
-					//socket.broadcast.to('fuente').emit('finJuego');
-					console.log("==== End Game =====");
+	//socket.broadcast.to('fuente').emit('finJuego');
+	console.log("==== End Game =====");
           serialArduino_one('401,0,0,0,0'); 
     	  	serialArduino_two('401,0,0,0,0'); 
           if(currentSong != '00'){
@@ -247,7 +247,7 @@ function indexOfQueue(_token){
 
 function serialArduino_one(_data){
 	console.log('Write Arduino 1:  ' + _data);
-  /*serial_one.write(_data, function(err) {
+  serial_one.write(_data, function(err) {
     if (err) {
       return console.log('Error on write1: ', err.message);
     }
@@ -256,13 +256,13 @@ function serialArduino_one(_data){
     if (err) {
       return console.log('Error on write1 n: ', err.message);
     }
-  }); */
+  }); 
 }
 
 
 function serialArduino_two(_data){
   console.log('Write Arduino 2:  ' + _data);
-  /*serial_two.write(_data, function(err) {
+  serial_two.write(_data, function(err) {
     if (err) {
       return console.log('Error on write1: ', err.message);
     }
@@ -271,5 +271,5 @@ function serialArduino_two(_data){
     if (err) {
       return console.log('Error on write1 n: ', err.message);
     }
-  });*/
+  });
 }

@@ -145,15 +145,14 @@ function userData(){
 let fixed = 2;
 let betaAxu = 0;
 let beta = document.getElementById("beta");
-let deviceOrientationData;
+
 
 
 if (window.DeviceOrientationEvent) {
-  document.getElementById("support").innerText = " SUPPORT: YES";
+  document.getElementById("support").innerText = "Suuport: YES";
   document.getElementById("heightSlider").style.display = "none";
   window.addEventListener('deviceorientation', function (evt) {
     setTimeout(function() {
-      deviceOrientationData = evt;
       try {
           beta.innerText= Math.round(evt.beta.toFixed(fixed));
           addHeight(evt.beta.toFixed(fixed));
@@ -213,6 +212,9 @@ function countDown(_difference, _dataEnd){
 }
 
 function playingTime(_endTime){
+socket.emit('startPlaying', {
+  email: param('id')
+});
   var currentTime = new Date();
   var dataTime = new Date (_endTime);
   var difference = Math.round((dataTime - currentTime) / 1000);

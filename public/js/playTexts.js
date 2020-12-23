@@ -4,6 +4,7 @@ if ( languaje == null){
 }
 
 const languajeURL = `assets/languaje/${languaje}.json`;
+const songsURL='assets/music.json';
 readTextFile(languajeURL, function(text){
 		var data = JSON.parse(text);
 		document.getElementById("play-homeTitle").innerHTML = data['homeTitle'];
@@ -31,8 +32,24 @@ readTextFile(languajeURL, function(text){
 
 });
 
+readTextFile(songsURL, function(text){
+	let songs = JSON.parse(text);
+	//<li><a onClick="playSong('Song no 1');">S1 </a></li>
 
+	songs.forEach(function(song){
+		addAnother(song);
+	
+	});
+});
 
+addAnother = function(song) {
+    var ul = document.getElementById("myUL");
+    var li = document.createElement("li");
+    var children = ul.children.length + 1
+    li.setAttribute('onclick', `playSong("${song}")`);
+    li.appendChild(document.createTextNode(song));
+    ul.appendChild(li)
+}
 
 
 function readTextFile(file, callback) {
