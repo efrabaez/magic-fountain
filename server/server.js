@@ -40,7 +40,7 @@ server.listen(port, (err) => {
   console.log(`Servidor corriendo en puerto ${ port }`);
 });
 
-/*const musicFolder = '/media/pi/USB/music/';
+const musicFolder = '/media/pi/USB/music/';
 
 const songs = [];
 
@@ -51,6 +51,6 @@ fs.readdirSync(musicFolder).forEach(file => {
 	songs.push(file);
 });
 
-fs.writeFileSync('./public/assets/music.json', JSON.stringify(songs));*/
+fs.writeFileSync('../public/assets/music.json', JSON.stringify(songs));
 
 

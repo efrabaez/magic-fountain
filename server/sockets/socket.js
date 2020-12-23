@@ -42,11 +42,11 @@ io.on('connection', (client) => {
 	client.join(client.id);
 
 	client.on('initFountain', function (data){
-		let startGameDate = new Date();
-		let endGameDate = new Date();
+		let startGameDate = new Date(data.startGame);
+		let endGameDate = new Date(data.startGame);
 
 		startGameDate.setSeconds(startGameDate.getSeconds()+12); //Give initial 12 seconds for prepare
-    endGameDate.setSeconds(endGameDate.getSeconds()+72); //This time the player should end the game
+    		endGameDate.setSeconds(endGameDate.getSeconds()+72); //This time the player should end the game
 		if(playersQueue.length == 0){
 		
 			player = {
@@ -89,7 +89,7 @@ io.on('connection', (client) => {
 
 	client.on('initGame', function (data){
 		let index = indexOfQueue(data.email);
-    let currentTime = new Date();
+    let currentTime = new Date(data.currentTime);
     let dataTime = new Date (playersQueue[index].endGame);
     let difference = Math.round((dataTime - currentTime) / 1000);
     
@@ -103,13 +103,13 @@ io.on('connection', (client) => {
         *We need to compare endGame time with nows time in order
         *to only give the user 60s no matter if he's playing or not.
         */
-        if(difference <= 0 || isActive == false){
+        if(difference <= 0){
           playersQueue.splice(index, 1);
           isActive = false;
           clearInterval(x);
           activeEvent = false;
-	//socket.broadcast.to('fuente').emit('finJuego');
-	console.log("==== End Game =====");
+
+		console.log("==== End Game =====");
           serialArduino_one('401,0,0,0,0'); 
     	  	serialArduino_two('401,0,0,0,0'); 
           if(currentSong != '00'){
@@ -133,6 +133,10 @@ io.on('connection', (client) => {
     if(playersQueue.length > 1){
 
       index = indexOfQueue(data.token);
+          if(currentSong != '00'){
+            player.quit();
+            currentSong = '00';
+          }
 
       for(var i = playersQueue.length; i == index; i--){
         playersQueue[i].startGame = playersQueue[i-1].startGame;
@@ -164,7 +168,7 @@ io.on('connection', (client) => {
 		});
 	
 	client.on('color', function (data){
-		if(true){
+		if(activeEvent){
 			if(parseInt(rgbw) != data.rgbw){
 				serialArduino_one(data.rgbw);
 				rgbw = data.rgbw;
@@ -173,7 +177,7 @@ io.on('connection', (client) => {
 	});
 	
 	client.on('height', function (data){
-		if(true){
+		if(activeEvent){
 			if(parseInt(height) != data.movimiento){
 				serialArduino_two(data.movimiento.toString());
 				height = data.height;
@@ -182,19 +186,21 @@ io.on('connection', (client) => {
 	});
 
 	client.on('sequence', function (data){
+
 		if(currentSong != '00'){
 			player.quit();
 			currentSong = '00';
 		}
 
-		if(activeEvent == 1){
-			activeEvent = 0;
+		if(activeEvent){
+			activeEvent = false;
 		}
 		if(sequence != data){
 			serialArduino_two(data);
 			setTimeout(function() {
 				serialArduino_one('401');
-			}, delayInMilliseconds);
+				serialArduino_two('401');
+			}, 1000);
 		}
 		sequence = data;
 	});
@@ -218,6 +224,11 @@ io.on('connection', (client) => {
     currentSong = '00';
     serialArduino_one('401,0,0,0,0'); 
     serialArduino_two('401,0,0,0,0'); 
+  });
+
+client.on('initSeq', function (){
+	console.log("initSequence");
+    serialArduino_two('400'); 
   });
 
 	

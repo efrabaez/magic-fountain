@@ -16,6 +16,7 @@ body{
 	background-color: #f8f6f6!important;
 }
 
+
 .titles{
   font-family: 'GillSansLight', sans-serif;
   color: #7f8080 !important;
@@ -79,7 +80,7 @@ body{
 }
 
 .card-header{
-  padding: .20rem 1rem!important;
+  padding: .08rem 1rem!important;
 }
 
 
@@ -162,6 +163,9 @@ body{
   display: none;
 }
 
+.btn-c{
+	max-width:60%!important;
+}
 
 
 

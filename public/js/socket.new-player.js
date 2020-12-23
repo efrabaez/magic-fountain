@@ -48,7 +48,8 @@ socket.on('playerRemove', function(){
 
 $( "#pills-play-tab" ).click(function() {
 	socket.emit('initFountain',{
-		email: param('id')
+		email: param('id'),
+		startGame: new Date()
 	});
 });
 
@@ -81,7 +82,7 @@ function changeHeight(height) {
 } 
 //Acelerometer
 function addHeight(_data){
-  if(Math.abs(parseInt(_data) - parseInt(lastHeigth)) > 2 ){
+  if(Math.abs(parseInt(_data) - parseInt(lastHeigth)) > 2 && isPlaying){
     lastHeigth = Math.round(_data);
     if(Math.round(_data) > 0 ){
       socket.emit('height', {
@@ -92,14 +93,23 @@ function addHeight(_data){
 }
 
 function changeSequence(_sequence){
+   isPlaying=false;
+	initSeq();
   socket.emit('sequence', _sequence);
+	
 }
 
 function changeFountain(_data){
+ isPlaying=true;
   socket.emit(_data, {
     rgbw: '0,0,0,0',
     height: '0'
   });
+}
+
+function initSeq(){
+
+  socket.emit('initSeq');
 }
 
 function playSong(_idSong){
@@ -145,23 +155,23 @@ function userData(){
 
 let fixed = 2;
 let betaAxu = 0;
-let beta = document.getElementById("beta");
+//let beta = document.getElementById("beta");
 
 
 
 if (window.DeviceOrientationEvent) {
-  document.getElementById("support").innerText = "Suuport: YES";
+  //document.getElementById("support").innerText = "Suuport: YES";
   document.getElementById("heightSlider").style.display = "none";
   window.addEventListener('deviceorientation', function (evt) {
     setTimeout(function() {
       try {
-          beta.innerText= Math.round(evt.beta.toFixed(fixed));
+          //beta.innerText= Math.round(evt.beta.toFixed(fixed));
 	  if(isPlaying && (Math.round(evt.beta.toFixed(fixed)) >= 0 && Math.round(evt.beta.toFixed(fixed))  <=100)){
             addHeight(evt.beta.toFixed(fixed));
 	  }
     
       } catch (ex) {
-        document.getElementById("support").innerText = "Suuport: NOT";
+        //document.getElementById("support").innerText = "Suuport: NOT";
         document.getElementById("heightSlider").style.display = "inline-block";
       }
     },300);
@@ -199,7 +209,8 @@ function countDown(_difference, _dataEnd){
         document.getElementById("rowPlaying").hidden = false;
 
         socket.emit('initGame', {
-          email: param('id')
+          email: param('id'),
+	currentTime: new Date()
         });
 
         playingTime(_dataEnd);
